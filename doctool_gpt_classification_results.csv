@@ -1,0 +1,6 @@
+Kategorie,Summe,Summe gleiches Ergebnis absolut,Summe gleiches Ergebnis relativ,Richtig absolut,Richtig relativ,Alibi-Score,Standartabweichung Alibi,Besser bei gleichem Ergebnis absolut,Besser bei gleichem Ergebnis relativ,Richtig absolut2,Richtig relativ3,Alibi-Score4,Standartabweichung Alibi5,Besser bei gleichem Ergebnis absolut6,Besser bei gleichem Ergebnis relativ7
+great,15,13,86.67%,6,40.00%,1.68,0.77,8,80.00%,8,53.33%,1.38,0.38,2,20.00%
+imperfect,47,29,61.70%,38,80.85%,1.73,0.52,15,57.69%,34,72.34%,0.98,0.59,11,42.31%
+alibi,71,28,39.44%,25,35.21%,1.15,0.57,10,38.46%,40,56.34%,0.58,0.25,16,61.54%
+missing,6,5,83.33%,5,83.33%,/,/,/,/,6,100.00%,/,/,/,/
+wrong in meaning,2,1,50.00%,0,0.00%,2.50,0.00,0,0.00%,1,50.00%,0.25,0.00,1,100.00%
