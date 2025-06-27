@@ -71,4 +71,4 @@ pip install pandas numpy matplotlib javalang openpyxl
 
 ## Lizenz
 
-Der Inhalt dieses Repositories wird unter der [MIT-Lizenz](LICENSE.md) veröffentlicht.
+Der Inhalt dieses Repositories wird unter der [MIT-Lizenz](LICENSE) veröffentlicht.
