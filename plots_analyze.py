@@ -1,10 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from pathlib import Path
 
 # CSV laden
-csv_path = 'doctool_gpt_classification_results.csv'
+repo_root = Path(__file__).resolve().parent
+csv_path = repo_root / 'doctool_gpt_classification_results.csv'
 df = pd.read_csv(csv_path)
+
+out_dir = repo_root / 'Grafiken'
+out_dir.mkdir(parents=True, exist_ok=True)
 
 # Deutsche Kategorienamen zuweisen
 categories = ['hervorragend', 'unvollkommen', 'alibi', 'fehlend', 'inhaltlich falsch']
@@ -37,7 +42,7 @@ for bars in [bar1, bar2]:
                      ha='center', va='bottom')
 
 plt.tight_layout()
-plt.savefig('classification_accuracy.svg', format='svg')
+plt.savefig(out_dir / 'classification_accuracy.svg', format='svg')
 
 
 # === Plot 2: Alibi-Scores (ohne "fehlend") ===
@@ -69,7 +74,7 @@ for bars in [bar3, bar4]:
                          ha='center', va='bottom')
 
 plt.tight_layout()
-plt.savefig('alibi_score_comparison.svg', format='svg')
+plt.savefig(out_dir / 'alibi_score_comparison.svg', format='svg')
 
 
 # === Plot 3: Besser bei gleichem Ergebnis (ohne "fehlend") ===
@@ -101,7 +106,7 @@ for bars in [bar5, bar6]:
                          ha='center', va='bottom')
 
 plt.tight_layout()
-plt.savefig('better_when_equal.svg', format='svg')
+plt.savefig(out_dir / 'better_when_equal.svg', format='svg')
 
 print("Plots exportiert als:\n- classification_accuracy.svg\n- alibi_score_comparison.svg\n- better_when_equal.svg")
 plt.show()

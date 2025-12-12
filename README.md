@@ -30,6 +30,7 @@ Hier befinden sich die zentralen Analyse-Skripte und die aggregierten Ergebnisda
 -   `analyze_generated.py`: Python-Skript zur Analyse der formalen Vollständigkeit der generierten Javadoc-Kommentare.
 -   `metrics_generated.py`: Python-Skript zur Erfassung sprachlicher Metriken (Zeilen, Sätze, Wörter) aus den Javadoc-Kommentaren.
 -   `plots_analyze.py` & `plots_generated.py`: Skripte zur Erstellung der in der Arbeit verwendeten Grafiken.
+-   `doctool.jar`: Ausführbare JAR-Datei des regelbasierten Werkzeugs DocTool.
 -   `doctool_gpt_classification_results.csv`: Die zentralen Ergebnisse der Klassifikationsanalyse, die DocTool- und GPT-Bewertungen gegenüberstellt.
 -   `javadoc_analysis.csv` & `javadoc_analysis.xlsx`: Rohdaten und qualitative Analyse der Bewertungsfähigkeiten.
 -   `javadoc_comment_metrics.csv` & `javadoc_comment_metrics.xlsx`: Auswertung der sprachlichen Metriken der verschiedenen Dokumentationsversionen.
@@ -51,7 +52,7 @@ Dieser Ordner enthält alle Dateien, die für das Generierungs-Experiment verwen
 
 ### `Grafiken/`
 
-Dieser Ordner enthält alle in der Bachelorarbeit verwendeten Grafiken und Diagramme im SVG-Format.
+Dieser Ordner enthält alle in der Bachelorarbeit verwendeten Grafiken und Diagramme im SVG-Format. Die Plot-Skripte (`plots_analyze.py` und `plots_generated.py`) exportieren ihre SVG-Dateien automatisch in diesen Ordner.
 
 -   `alibi_score_comparison.svg`: Vergleich der durchschnittlichen Alibi-Scores.
 -   `classification_accuracy.svg`: Vergleich der Klassifikationsgenauigkeit von DocTool und GPT.

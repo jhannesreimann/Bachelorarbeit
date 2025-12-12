@@ -1,7 +1,7 @@
-import os
 import re
 import javalang
 import pandas as pd
+from pathlib import Path
 
 
 def find_javadoc_blocks(lines):
@@ -77,26 +77,26 @@ def analyze_file(path):
 
 
 def main():
+    repo_root = Path(__file__).resolve().parent
     base_dirs = {
-        'original_with_docs': os.path.join('Original Java Dateien'),
-        'generated_speaking': os.path.join('Generierung', 'sprechend', 'Generated'),
-        'generated_obfuscated': os.path.join('Generierung', 'nicht sprechend', 'Generated'),
+        'original_with_docs': repo_root / 'Original Java Dateien',
+        'generated_speaking': repo_root / 'Generierung' / 'sprechend' / 'Generated',
+        'generated_obfuscated': repo_root / 'Generierung' / 'nicht sprechend' / 'Generated',
     }
     records = []
     for label, d in base_dirs.items():
-        if not os.path.isdir(d):
+        if not d.is_dir():
             continue
-        for file in os.listdir(d):
-            if file.endswith('.java'):
-                path = os.path.join(d, file)
-                metrics = analyze_file(path)
+        for file_path in d.iterdir():
+            if file_path.is_file() and file_path.name.endswith('.java'):
+                metrics = analyze_file(str(file_path))
                 # kombiniere
-                record = {'set': label, 'file': file}
+                record = {'set': label, 'file': file_path.name}
                 record.update(metrics)
                 records.append(record)
     df = pd.DataFrame(records)
-    csv_path = 'javadoc_comment_metrics.csv'
-    excel_path = 'javadoc_comment_metrics.xlsx'
+    csv_path = repo_root / 'javadoc_comment_metrics.csv'
+    excel_path = repo_root / 'javadoc_comment_metrics.xlsx'
     df.to_csv(csv_path, index=False, encoding='utf-8')
     try:
         df.to_excel(excel_path, index=False, engine='openpyxl')

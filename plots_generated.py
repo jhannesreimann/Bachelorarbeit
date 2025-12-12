@@ -1,10 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from pathlib import Path
 
 # CSV laden
-csv_path = 'javadoc_comment_metrics.csv'
+repo_root = Path(__file__).resolve().parent
+csv_path = repo_root / 'javadoc_comment_metrics.csv'
 df = pd.read_csv(csv_path)
+
+out_dir = repo_root / 'Grafiken'
+out_dir.mkdir(parents=True, exist_ok=True)
 
 # Kategorien
 sets = ['original_with_docs', 'generated_speaking', 'generated_obfuscated']
@@ -82,7 +87,7 @@ for bar_group in bars_2:
 plt.tight_layout()
 
 # SVG speichern
-svg_path = 'javadoc_metrics_extended.svg'
+svg_path = out_dir / 'javadoc_metrics_extended.svg'
 plt.savefig(svg_path, format='svg')
 plt.show()
 
